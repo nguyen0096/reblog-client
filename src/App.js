@@ -4,7 +4,7 @@ export const App = () => {
     return (
         <>
             <div>
-            Hello world! I'm Nguyen. test 16
+            Dummy 7
             </div>
         </>
     )

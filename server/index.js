@@ -13,7 +13,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware')
 const webpackConfig = {
     mode: 'development',
     entry: [
-        'webpack-hot-middleware/client?reload=true',
+        'webpack-hot-middleware/client',
         path.resolve(process.cwd(), 'src'), 
     ],
     output: {
