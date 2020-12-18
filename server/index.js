@@ -6,18 +6,20 @@ const webpack = require('webpack');
 const app = express();
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpackMiddlewareFactory = require('./middlewares/webpack/middlewareFactory');
-// const webpackConfigFactory = require('../internals/webpack/configFactory');
-// const webpackConfig = webpackConfigFactory();
 
-// Refer to https://webpack.js.org/configuration/
+const webpackMiddlewareFactory = require('./middlewares/webpack/middlewareFactory');
+const webpackHotMiddleware = require('webpack-hot-middleware')
+
 const webpackConfig = {
     mode: 'development',
-    entry: path.resolve(process.cwd(), 'src'),
+    entry: [
+        'webpack-hot-middleware/client?reload=true',
+        path.resolve(process.cwd(), 'src'), 
+    ],
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'build'),
-        publicPath: ""
+        publicPath: "/"
     },
 
     module: {
@@ -31,12 +33,14 @@ const webpackConfig = {
     },
 
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(process.cwd(), 'src/index.html'),
             title: "Reblog - Development",
             inject: true,
             publicPath: './'
-        })
+        }),
+        new webpack.NoEmitOnErrorsPlugin(),
     ],
 
     resolve: {
@@ -52,12 +56,13 @@ const webpackConfig = {
 }
 
 const compiler = webpack(webpackConfig);
-const webpackMiddleware = webpackMiddlewareFactory(compiler, webpackConfig);
+const webpackMiddleware = webpackMiddlewareFactory.getDevMiddleware(compiler, webpackConfig);
 
 app.use(webpackMiddleware);
+app.use(webpackHotMiddleware(compiler));
 
 
-const fs = compiler.outputFileSystem; // webpackMiddleware.fileSystem;
+const fs = compiler.outputFileSystem; 
 app.get('*', (req, res) => {
     fs.readFile(path.join(compiler.outputPath, 'index.html'), (err, file) => {
         if (err)
