@@ -1,0 +1,22 @@
+.auth-login {
+    .paper {
+        margin-top: 4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .avatar {
+        margin: 0.5rem;
+        background-color: #F48FB1;
+    }
+
+    .form {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .submit {
+        margin: 1.5rem 0 1rem
+    }
+}

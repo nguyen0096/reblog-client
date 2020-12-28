@@ -27,7 +27,8 @@ app.get('*', (req, res) => {
 
 const serverIP = process.env.server_ip || '127.0.0.1';
 
-app.listen('8080', serverIP, async (err) => {
+app.listen('8081', serverIP, async (err) => {
+  console.log('Listening on port 8081');
   if (err) {
     return console.log(err.message);
   }

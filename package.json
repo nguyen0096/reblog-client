@@ -13,16 +13,27 @@
   "author": "Nguyen DN",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "axios": "^0.21.1",
+    "bourbon": "^7.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "minimist": "^1.2.5",
+    "mobx": "^6.0.4",
+    "mobx-react": "^7.0.5",
+    "prop-types": "^15.7.2",
+    "qs": "^6.9.4",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "regenerator-runtime": "^0.13.7"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.5",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.1",
     "css-loader": "^5.0.1",
     "eslint": "^7.15.0",

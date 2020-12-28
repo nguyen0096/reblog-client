@@ -6,21 +6,20 @@ const createWebpackMiddleware = (compiler, publicPath) => {
     return webpackDevMiddleware(compiler, {
         publicPath,
     });
-}
+};
 
 webpackMiddlewareFactory.getProdMiddleware = (compiler, config) => {
     return createWebpackMiddleware(
         compiler,
-        config.output.publicPath
+        config.output.publicPath,
     );
-}
+};
 
 webpackMiddlewareFactory.getDevMiddleware = (compiler, config) => {
     return createWebpackMiddleware(
         compiler,
-        config.output.publicPath
+        config.output.publicPath,
     );
-}
-
+};
 
 module.exports = webpackMiddlewareFactory;

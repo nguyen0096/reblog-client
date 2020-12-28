@@ -14,9 +14,26 @@ module.exports = function getWebpackBaseConfig(options) {
     module: {
       rules: [
         {
-          test: /\.js/,
-          exclude: /node_modules/,
-          use: 'babel-loader',
+          loader: 'babel-loader',
+          test: /\.js$/,
+          exclude: /node_modules/
+        },
+        {
+          test: /\.css$/,
+          use: [
+            'style-loader',
+            'css-loader'],
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            'style-loader',
+            'css-loader',
+            'sass-loader'],
+        },
+        {
+          test: /\.(jpg|jpeg|png|woff|woff2|eot|ttf|svg)$/,
+          use: 'url-loader?limit=100000',
         },
       ],
     },
@@ -26,6 +43,7 @@ module.exports = function getWebpackBaseConfig(options) {
       alias: {
         components: path.resolve(process.cwd(), process.env.WP_SRC_DIR || 'src', 'components'),
         containers: path.resolve(process.cwd(), process.env.WP_SRC_DIR || 'src', 'containers'),
+        stores: path.resolve(process.cwd(), process.env.WP_SRC_DIR || 'src', 'stores'),
       },
     },
     devtool: options.devtool,
