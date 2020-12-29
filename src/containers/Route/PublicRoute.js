@@ -1,12 +1,33 @@
 import React from 'react';
+import { inject, observer } from 'mobx-react';
 import { Redirect, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export function PublicRoute(props) {
 
-    console.log("PublicRoute");
-    const {component: Component, render, children, redirectPath, redirectPush, ...rest} = props;
+    // console.log("PublicRoute");
+    const {
+        appStore,
+        component: Component, 
+        render, 
+        children, 
+        redirectPath, 
+        redirectPush, 
+        restricted, 
+        ...rest
+    } = props;
+    const profile = appStore?.userStore?.profile;
+
     const defaultRender = render || function(route){
+        if (restricted && profile && Object.keys(profile).length > 0) {
+            return <Redirect
+                to={{
+                    pathname: '/dashboard',
+                    state: { from: route.location },
+                }}
+            />
+        }
+
         if (redirectPath) {
             return <Redirect 
                 push={redirectPush}
@@ -33,13 +54,15 @@ export function PublicRoute(props) {
 }
 
 PublicRoute.propTypes = {
-    // Default behaviors
+    // Children
     render: PropTypes.func,
     component: PropTypes.any,
     children: PropTypes.any,
+    // Properties
+    restricted: PropTypes.bool,
     // Redirect
     redirectPath: PropTypes.string,
     redirectPush: PropTypes.bool,
 }
 
-export default PublicRoute;
+export default inject('appStore')(observer(PublicRoute));

@@ -32,17 +32,18 @@ const App = (props) => {
 
             <Router>
                 <Switch>
-                        <PublicRoute 
-                            path="/login"
-                            component={Login} 
-                        />
+                    <PublicRoute 
+                        restricted
+                        path="/login"
+                        component={Login}
+                    />
 
-                        <PublicRoute exact path="/" redirectPath="/dashboard" />
-                        
-                        <PrivateRoute
-                            path="/dashboard"
-                            component={Dashboard}
-                        />     
+                    <PublicRoute exact path="/" redirectPath="/dashboard" />
+                    
+                    <PrivateRoute
+                        path="/dashboard"
+                        component={Dashboard}
+                    />     
                 </Switch>
             </Router>
         </AppContainer>

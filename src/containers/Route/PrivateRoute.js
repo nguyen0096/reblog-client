@@ -4,7 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 
 export function PrivateRoute(props) {
     
-    console.log("PrivateRoute");
+    // console.log("PrivateRoute");
     const {component: Component, appStore, ...rest} = props;
     const profile = appStore?.userStore?.profile;
 
