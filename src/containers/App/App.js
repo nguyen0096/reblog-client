@@ -8,12 +8,12 @@ import { inject, observer } from 'mobx-react';
 
 import AppContainer from 'components/AppContainer';
 import FAIcon from 'components/Icon/FAIcon';
-import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
+import PrivateRoute from 'containers/Route/PrivateRoute';
 import Dashboard from 'containers/Dashboard/Dashboard';
 import Login from 'containers/Login/Login';
+import PublicRoute from '../Route/PublicRoute';
 
 const App = (props) => {
-
     const [isDrawerOpening, setIsDrawerOpening] = useState(false);
     return (
         <AppContainer>
@@ -32,16 +32,13 @@ const App = (props) => {
 
             <Router>
                 <Switch>
-                        <Route
+                        <PublicRoute 
                             path="/login"
-                            component={Login}
+                            component={Login} 
                         />
 
-                        <Route
-                            path="/"
-                            component={() => <Redirect to="/dashboard" push />}
-                        />     
-
+                        <PublicRoute exact path="/" redirectPath="/dashboard" />
+                        
                         <PrivateRoute
                             path="/dashboard"
                             component={Dashboard}

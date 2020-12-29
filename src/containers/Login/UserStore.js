@@ -3,7 +3,9 @@ import { makeObservable, observable } from "mobx";
 import { UserController } from './Controller'
 
 export class UserStore {
-    profile = null;
+    profile = {
+        name: 'nguyen',
+    };
 
     constructor(appStore) {
         makeObservable(this, {

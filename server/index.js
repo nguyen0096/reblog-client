@@ -25,11 +25,15 @@ app.get('*', (req, res) => {
   });
 });
 
-const serverIP = process.env.server_ip || '127.0.0.1';
+const serverIP = process.env.DEV_SERVER_IP || '127.0.0.1';
+const serverPort = process.env.DEV_SERVER_PORT || '9001';
 
-app.listen('8081', serverIP, async (err) => {
-  console.log('Listening on port 8081');
+app.listen(serverPort, serverIP, async (err) => {
+  console.log(`Listening on ${serverIP} port ${serverPort}`);
   if (err) {
     return console.log(err.message);
   }
 });
+
+// TODO webpack build command
+// TODO use env variable passed as command arguments
