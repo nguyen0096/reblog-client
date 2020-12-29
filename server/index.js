@@ -6,7 +6,7 @@ const express = require('express');
 const webpack = require('webpack');
 
 const app = express();
-
+// TODO config webpack to show errors when compiling
 // Webpack
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackMiddlewareFactory = require('./middlewares/webpack/middlewareFactory');
