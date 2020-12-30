@@ -11,7 +11,7 @@ export class UserController {
     async login(formData) {
         axios({
             method: 'post',
-            url: '/user',
+            url: 'http://localhost:8080/user',
             data: qs.stringify(formData),
             headers: {
               'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
