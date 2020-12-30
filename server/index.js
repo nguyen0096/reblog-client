@@ -4,6 +4,7 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express();
 // TODO config webpack to show errors when compiling
@@ -14,6 +15,10 @@ const webpackConfig = require('../internals/webpack/webpack.dev')();
 
 const compiler = webpack(webpackConfig);
 const webpackMiddleware = webpackMiddlewareFactory.getDevMiddleware(compiler, webpackConfig);
+
+// app.use(createProxyMiddleware('/api', { 
+//   target: 'http://localhost:8080', 
+// }));
 
 app.use(webpackMiddleware);
 app.use(webpackHotMiddleware(compiler));
