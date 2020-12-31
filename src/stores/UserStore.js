@@ -1,6 +1,6 @@
 import { makeObservable, observable } from "mobx";
 
-import { UserController } from './Controller'
+import { UserController } from 'controllers/User';
 
 export class UserStore {
     // profile = {

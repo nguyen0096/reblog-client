@@ -1,4 +1,4 @@
-import { UserStore } from 'containers/Login/UserStore';
+import { UserStore } from './UserStore';
 
 class AppStore
 {

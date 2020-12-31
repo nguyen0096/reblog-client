@@ -40,5 +40,4 @@ app.listen(serverPort, serverIP, async (err) => {
   }
 });
 
-// TODO webpack build command
 // TODO use env variable passed as command arguments

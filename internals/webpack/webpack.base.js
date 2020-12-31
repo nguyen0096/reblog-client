@@ -1,12 +1,15 @@
 const path = require('path');
 
+const srcDirname = process.env.WP_SRC_DIR || 'src';
+const outputDirname = process.env.WP_OUTPUT_DIR || 'build';
+
 // Base configurations for both dev and prod mode
 module.exports = function getWebpackBaseConfig(options) {
   return {
     mode: options.mode,
     entry: options.entry,
     output: {
-      path: path.resolve(process.cwd(), process.env.WP_OUTPUT_DIR || 'build'),
+      path: path.resolve(process.cwd(), outputDirname),
       publicPath: process.env.WP_PUBLIC_PATH || '/',
       ...options.output,
     },
@@ -15,7 +18,7 @@ module.exports = function getWebpackBaseConfig(options) {
       rules: [
         {
           loader: 'babel-loader',
-          test: /\.js$/,
+          test: /\.jsx?$/,
           exclude: /node_modules/
         },
         {
@@ -25,7 +28,8 @@ module.exports = function getWebpackBaseConfig(options) {
             'css-loader'],
         },
         {
-          test: /\.scss$/,
+          test: /\.s[ac]ss$/i,
+          exclude: /node_modules/,
           use: [
             'style-loader',
             'css-loader',
@@ -41,9 +45,10 @@ module.exports = function getWebpackBaseConfig(options) {
 
     resolve: {
       alias: {
-        components: path.resolve(process.cwd(), process.env.WP_SRC_DIR || 'src', 'components'),
-        containers: path.resolve(process.cwd(), process.env.WP_SRC_DIR || 'src', 'containers'),
-        stores: path.resolve(process.cwd(), process.env.WP_SRC_DIR || 'src', 'stores'),
+        components: path.resolve(process.cwd(), srcDirname, 'components'),
+        containers: path.resolve(process.cwd(), srcDirname, 'containers'),
+        stores: path.resolve(process.cwd(), srcDirname, 'stores'),
+        controllers: path.resolve(process.cwd(), srcDirname, 'controllers'),
       },
     },
     devtool: options.devtool,
