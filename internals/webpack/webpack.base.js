@@ -49,6 +49,7 @@ module.exports = function getWebpackBaseConfig(options) {
         containers: path.resolve(process.cwd(), srcDirname, 'containers'),
         stores: path.resolve(process.cwd(), srcDirname, 'stores'),
         controllers: path.resolve(process.cwd(), srcDirname, 'controllers'),
+        utils: path.resolve(process.cwd(), srcDirname, 'utils'),
       },
     },
     devtool: options.devtool,
