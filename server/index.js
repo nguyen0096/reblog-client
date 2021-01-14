@@ -1,6 +1,10 @@
 /* eslint-disable consistent-return */
-require('dotenv').config();
+// TODO config webpack to show errors when compiling
+// TODO: rewrite path based on app
+// TODO use env variable passed as command arguments
 // var argv = require('minimist')(process.argv.slice(2));
+
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
@@ -8,23 +12,21 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express();
 
-// TODO config webpack to show errors when compiling
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackMiddlewareFactory = require('./middlewares/webpack/middlewareFactory');
-const webpackConfig = require('../internals/webpack/webpack.dev')();
-
-const compiler = webpack(webpackConfig);
-const webpackMiddleware = webpackMiddlewareFactory.getDevMiddleware(compiler, webpackConfig);
-
-
-// BACKLOG: rewrite path based on app
+// Proxy to API server
 app.use('/api', createProxyMiddleware({ 
-    target: 'http://localhost:8080',
+    target: process.env.BACKEND_URL || 'http://localhost:8080/api',
     changeOrigin: true,
 }));
 
-app.use(webpackMiddleware);
-app.use(webpackHotMiddleware(compiler));
+
+// Setup file serving
+const wpHotMid = require('webpack-hot-middleware');
+const wpMidFactory = require('./middlewares/webpack/middlewareFactory');
+const wpConfig = require('../internals/webpack/webpack.dev')();
+const compiler = webpack(wpConfig);
+const wpMid = wpMidFactory.getDevMiddleware(compiler, wpConfig);
+app.use(wpMid);
+app.use(wpHotMid(compiler));
 
 const fs = compiler.outputFileSystem;
 app.get('*', (req, res) => {
@@ -33,14 +35,13 @@ app.get('*', (req, res) => {
   });
 });
 
-const serverIP = process.env.DEV_SERVER_IP || '127.0.0.1';
-const serverPort = process.env.DEV_SERVER_PORT || '9001';
+// Run server
+const serverIP = process.env.WEB_SERVER_IP || '127.0.0.1';
+const serverPort = process.env.WEB_SERVER_PORT || '9001';
 
 app.listen(serverPort, serverIP, async (err) => {
-  console.log(`Listening on ${serverIP} port ${serverPort}`);
+  console.log(`Listening on ${serverIP}:${serverPort}`);
   if (err) {
     return console.log(err.message);
   }
 });
-
-// TODO use env variable passed as command arguments

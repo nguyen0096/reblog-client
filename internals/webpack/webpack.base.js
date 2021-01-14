@@ -1,7 +1,8 @@
 const path = require('path');
+const { getAliases } = require('./utils');
 
-const srcDirname = process.env.WP_SRC_DIR || 'src';
-const outputDirname = process.env.WP_OUTPUT_DIR || 'build';
+const srcDir = process.env.WP_SRC_DIR || 'src';
+const outputDir = process.env.WP_OUTPUT_DIR || 'build';
 
 // Base configurations for both dev and prod mode
 module.exports = function getWebpackBaseConfig(options) {
@@ -9,7 +10,7 @@ module.exports = function getWebpackBaseConfig(options) {
     mode: options.mode,
     entry: options.entry,
     output: {
-      path: path.resolve(process.cwd(), outputDirname),
+      path: path.resolve(process.cwd(), outputDir),
       publicPath: process.env.WP_PUBLIC_PATH || '/',
       ...options.output,
     },
@@ -44,14 +45,9 @@ module.exports = function getWebpackBaseConfig(options) {
     plugins: options.plugins.concat([]),
 
     resolve: {
-      alias: {
-        components: path.resolve(process.cwd(), srcDirname, 'components'),
-        containers: path.resolve(process.cwd(), srcDirname, 'containers'),
-        stores: path.resolve(process.cwd(), srcDirname, 'stores'),
-        controllers: path.resolve(process.cwd(), srcDirname, 'controllers'),
-        utils: path.resolve(process.cwd(), srcDirname, 'utils'),
-      },
+      alias: getAliases(srcDir),
     },
+
     devtool: options.devtool,
     optimization: options.optimization,
     performance: options.performance || {},

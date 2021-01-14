@@ -1,3 +1,5 @@
+// TODO figure the proper way to config for dev
+
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -5,7 +7,6 @@ const getWebpackBaseConfig = require('./webpack.base');
 
 const srcDirname = process.env.WP_SRC_DIR || 'src';
 
-// TODO figure the proper way to config for dev
 module.exports = function getWebpackDevConfig() {
   return getWebpackBaseConfig({
     mode: 'development',

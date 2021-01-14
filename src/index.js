@@ -1,3 +1,6 @@
+// FIXME: can't click on imports and go to source file
+// FIXME config hot reload for mobx changes
+
 import 'normalize.css';
 import './index.scss';
 
@@ -17,12 +20,10 @@ ReactDOM.render(
   MOUNT_NODE,
 );
 
-// FIXME: can't click on imports and go to source file
 if (module.hot) {
   // Accept update for itself
   module.hot.accept();
 
-  // TODO config hot reload for mobx changes
   // module.hot.accept(['./index.js'],(err) => {
   //     console.log("reloading self");
   //     window.location.reload();
