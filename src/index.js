@@ -17,6 +17,7 @@ ReactDOM.render(
   MOUNT_NODE,
 );
 
+// FIXME: can't click on imports and go to source file
 if (module.hot) {
   // Accept update for itself
   module.hot.accept();
