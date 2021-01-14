@@ -3,7 +3,7 @@ import qs from 'qs';
 
 export default class HttpClient {
     constructor(baseUrl) {
-        this.baseUrl = baseUrl || 'http://localhost:8080/api';
+        this.baseUrl = baseUrl || '/api';
     }
 
     get(url, header = undefined, cb = undefined)
@@ -19,18 +19,17 @@ export default class HttpClient {
             .then(cb);
     }
 
-    post(url, data, header = undefined, cb = undefined)
+    post(path, data, headers = undefined, cb = undefined)
     {
-        const req = {
-            method: 'POST',
-            headers: new Headers(header || {
-                'Content-Type': 'application/json'
-            }),
-            body: data,
-        };
-        return fetch(url, req)
+        return axios({
+            method: 'post',
+            url: this.baseUrl + path,
+            data: JSON.stringify(data),
+            headers: headers || {
+                'content-type': 'application/json'
+            }
+        })
             .then(this.parseJSON)
-            .then(this.checkError)
             .then(cb);
     }
 

@@ -7,7 +7,7 @@ export class UserController {
     }
 
     async login(formData) {
-        this.httpClient.postForm('/user', formData).then((data) => {
+        this.httpClient.post('/auth/login', formData).then((data) => {
             console.log("Data: ", data);
         });
     }

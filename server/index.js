@@ -7,8 +7,8 @@ const webpack = require('webpack');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express();
+
 // TODO config webpack to show errors when compiling
-// Webpack
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackMiddlewareFactory = require('./middlewares/webpack/middlewareFactory');
 const webpackConfig = require('../internals/webpack/webpack.dev')();
@@ -16,9 +16,12 @@ const webpackConfig = require('../internals/webpack/webpack.dev')();
 const compiler = webpack(webpackConfig);
 const webpackMiddleware = webpackMiddlewareFactory.getDevMiddleware(compiler, webpackConfig);
 
-// app.use(createProxyMiddleware('/api', { 
-//   target: 'http://localhost:8080', 
-// }));
+
+// BACKLOG: rewrite path based on app
+app.use('/api', createProxyMiddleware({ 
+    target: 'http://localhost:8080',
+    changeOrigin: true,
+}));
 
 app.use(webpackMiddleware);
 app.use(webpackHotMiddleware(compiler));

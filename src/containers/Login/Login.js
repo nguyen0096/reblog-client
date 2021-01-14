@@ -22,7 +22,7 @@ export function Login(props) {
     const controller = props.appStore.userStore.controller;
 
     const [formData, setFormData] = useState({
-        email: '',
+        username: '',
         password: '',
     });
 
@@ -51,13 +51,13 @@ export function Login(props) {
                         margin="normal"
                         required
                         fullWidth
-                        id="email"
-                        label="Email Address"
-                        name="email"
-                        autoComplete="email"
+                        id="username"
+                        label="Username"
+                        name="username"
+                        autoComplete="username"
                         autoFocus
-                        onChange={(e) => handleChangeField(e, 'email')}
-                        value={formData['email']}
+                        onChange={(e) => handleChangeField(e, 'username')}
+                        value={formData['username']}
                     />
                     <TextField
                         variant="outlined"
