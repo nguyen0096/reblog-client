@@ -7,8 +7,10 @@ export class UserController {
     }
 
     async login(formData) {
-        this.httpClient.post('/auth/login', formData).then((data) => {
-            console.log("Data: ", data);
+        this.httpClient.post('/auth/login', formData).then((res) => {
+            if (res) {
+                localStorage.setItem('token', res.data)
+            }
         });
     }
 }

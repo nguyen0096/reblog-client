@@ -17,8 +17,10 @@ const App = (props) => {
     const [isDrawerOpening, setIsDrawerOpening] = useState(false);
     return (
         <AppContainer>
-            <h1>Reblog Web - Test 2</h1>
-            <Button onClick={() => setIsDrawerOpening(!isDrawerOpening)}>Menu</Button>
+            <nav style={{ width: '100%', backgroundColor: '#efefef'}}>
+                <Button onClick={() => setIsDrawerOpening(!isDrawerOpening)}>Menu</Button>
+            </nav>
+            
             <Drawer anchor={'left'} open={isDrawerOpening} onClose={() => setIsDrawerOpening(!isDrawerOpening)}>
                 <List>
                     {['Login', 'Starred', 'Send email', 'Drafts'].map((text, index) => (

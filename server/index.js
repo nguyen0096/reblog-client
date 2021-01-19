@@ -14,7 +14,7 @@ const app = express();
 
 // Proxy to API server
 app.use('/api', createProxyMiddleware({ 
-    target: process.env.BACKEND_URL || 'http://localhost:8080/api',
+    target: process.env.BACKEND_URL || 'http://localhost:8080',
     changeOrigin: true,
 }));
 

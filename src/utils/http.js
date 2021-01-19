@@ -1,3 +1,4 @@
+import { red } from '@material-ui/core/colors';
 import axios from 'axios';
 import qs from 'qs';
 
@@ -29,7 +30,7 @@ export default class HttpClient {
                 'content-type': 'application/json'
             }
         })
-            .then(this.parseJSON)
+            .then(res => res.data)
             .then(cb);
     }
 
