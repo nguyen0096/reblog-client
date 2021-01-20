@@ -1,8 +1,8 @@
 import { makeObservable, observable } from "mobx";
 
-import { UserController } from 'containers/Login/controller';
+import { AuthController } from 'containers/Auth/controller';
 
-export class UserStore {
+export class AuthStore {
     // profile = {
     //     name: 'nguyen',
     // };
@@ -14,6 +14,6 @@ export class UserStore {
         })
 
         this.appStore = appStore;
-        this.controller = new UserController(this);
+        this.controller = new AuthController(this);
     }
 }

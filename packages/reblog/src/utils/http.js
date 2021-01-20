@@ -1,12 +1,7 @@
-import { red } from '@material-ui/core/colors';
 import axios from 'axios';
 import qs from 'qs';
 
 export default class HttpClient {
-    constructor(baseUrl) {
-        this.baseUrl = baseUrl || '/api';
-    }
-
     get(url, header = undefined, cb = undefined)
     {
         return fetch(url, {
@@ -24,7 +19,7 @@ export default class HttpClient {
     {
         return axios({
             method: 'post',
-            url: this.baseUrl + path,
+            url: path,
             data: JSON.stringify(data),
             headers: headers || {
                 'content-type': 'application/json'

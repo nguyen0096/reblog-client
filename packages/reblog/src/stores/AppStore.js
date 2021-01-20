@@ -1,10 +1,10 @@
-import { UserStore } from './UserStore';
+import { AuthStore } from './AuthStore';
 
 class AppStore
 {
     constructor()
     {
-        this.userStore = new UserStore(this);
+        this.authStore = new AuthStore(this);
     }
 }
 

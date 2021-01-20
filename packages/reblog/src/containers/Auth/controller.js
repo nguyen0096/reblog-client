@@ -1,6 +1,6 @@
 import HttpClient from 'utils/http';
 
-export class UserController {
+export class AuthController {
     constructor(store) {
         this.store = store;
         this.httpClient = new HttpClient();

@@ -19,7 +19,7 @@ function Copyright() {
 
 export function Login(props) {
 
-    const controller = props.appStore.userStore.controller;
+    const controller = props.appStore.authStore.controller;
 
     const [formData, setFormData] = useState({
         username: '',
