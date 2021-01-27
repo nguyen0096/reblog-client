@@ -3,14 +3,12 @@ import { inject, observer } from 'mobx-react';
 import { Redirect, Route } from 'react-router-dom';
 
 export function PrivateRoute(props) {
-    
-    // console.log("PrivateRoute");
     const {component: Component, appStore, ...rest} = props;
-    const profile = appStore?.userStore?.profile;
+    const authStore = appStore?.authStore || {};
 
     return (
         <Route {...rest} render={(route) => (
-            profile && Object.keys(profile).length > 0 
+            authStore.isLoggedIn
             ?
                 <Component {...route} />
             : 

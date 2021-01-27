@@ -8,3 +8,6 @@ interface Props {
 export const ExampleComponent = ({ text }: Props) => {
   return <div className={styles.test}>Example Component: {text}</div>
 }
+
+export * from './components/Chat/ChatBox';
+export * from './components/Layout/Container';

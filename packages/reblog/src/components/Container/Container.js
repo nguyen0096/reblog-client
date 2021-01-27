@@ -3,9 +3,9 @@ import './AppContainer.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const AppContainer = (props) => {
+export const Container = (props) => {
     let classNames = ['container'];
-    props.className && classNames.push(props.className);
+    props.className && classNames.concat(this.props.classNames);
     return (
         <div className={classNames.join(' ')}>
             {props.children}
@@ -13,8 +13,8 @@ export const AppContainer = (props) => {
     );
 };
 
-AppContainer.propTypes = {
-    className: PropTypes.string,
+Container.propTypes = {
+    classNames: PropTypes.array,
 };
 
-export default AppContainer;
+export default Container;

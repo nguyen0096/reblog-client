@@ -2,8 +2,7 @@ import { AuthStore } from './AuthStore';
 
 class AppStore
 {
-    constructor()
-    {
+    constructor() {
         this.authStore = new AuthStore(this);
     }
 }

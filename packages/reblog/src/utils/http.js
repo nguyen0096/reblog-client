@@ -2,6 +2,9 @@ import axios from 'axios';
 import qs from 'qs';
 
 export default class HttpClient {
+    constructor() {
+        this.basePath = '/api';
+    }
     get(url, header = undefined, cb = undefined)
     {
         return fetch(url, {
@@ -19,7 +22,7 @@ export default class HttpClient {
     {
         return axios({
             method: 'post',
-            url: path,
+            url: this.basePath + path,
             data: JSON.stringify(data),
             headers: headers || {
                 'content-type': 'application/json'
@@ -32,7 +35,7 @@ export default class HttpClient {
     postForm(path, data, headers = undefined, cb = undefined) {
         return axios({
             method: 'post',
-            url: this.baseUrl + path,
+            url: this.basePath + path,
             data: qs.stringify(data),
             headers: headers || {
               'content-type': 'application/x-www-form-urlencoded;charset=utf-8'

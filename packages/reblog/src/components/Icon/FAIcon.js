@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { FontAwesomeTypes } from './constants';
-
 export function FAIcon(props) {
     let classNames = [];
     classNames.push(FontAwesomeTypes[props.type || 'regular']);
-    classNames.push(props.type);
+    classNames.push('fa-' + props.icon);
     return (
         <i
             className={classNames.join(' ')}

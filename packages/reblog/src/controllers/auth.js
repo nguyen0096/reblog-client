@@ -9,7 +9,9 @@ export class AuthController {
     async login(formData) {
         this.httpClient.post('/auth/login', formData).then((res) => {
             if (res) {
-                localStorage.setItem('token', res.data)
+                localStorage.setItem('token', res.data);
+                this.store.setAuthProfile(res.data);
+                // window.location.replace('/dashboard');
             }
         });
     }

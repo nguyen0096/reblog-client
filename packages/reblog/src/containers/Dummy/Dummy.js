@@ -6,7 +6,7 @@ export class Dummy extends React.Component {
     }
 
     render() {
-        return <h1>Hello, Nguyen</h1>;
+        return <h1>Hello, Nguyen. This is a dummy page</h1>;
     }
 }
 

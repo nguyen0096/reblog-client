@@ -5,6 +5,7 @@
 // var argv = require('minimist')(process.argv.slice(2));
 
 require('dotenv').config();
+const { info } = require('./utils/logging');
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
@@ -13,9 +14,13 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 
 // Proxy to API server
+info('Setting up API proxy using BACKEND_URL: ' + process.env.BACKEND_URL);
 app.use('/api', createProxyMiddleware({ 
     target: process.env.BACKEND_URL || 'http://localhost:8080',
     changeOrigin: true,
+    pathRewrite: {
+      '^/api/': '/',
+    }
 }));
 
 

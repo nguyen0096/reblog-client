@@ -3,6 +3,7 @@ import './Login.scss';
 import React, { useState } from 'react';
 import { Avatar, Box, Button, Checkbox, Container, CssBaseline, FormControlLabel, Grid, TextField, Typography } from '@material-ui/core';
 import { inject, observer } from 'mobx-react';
+import { PublicRoute } from 'containers/Route/PublicRoute';
 
 function Copyright() {
     return (
@@ -36,6 +37,10 @@ export function Login(props) {
     }
 
     return (
+        <>
+        <PublicRoute
+            redirectPath="/dashboard"
+        />
         <Container className="auth-login" component="main" maxWidth="xs">
             <CssBaseline />
             <div className="paper">
@@ -104,6 +109,7 @@ export function Login(props) {
                 <Copyright />
             </Box>
         </Container>
+        </>
     );
 }
 
