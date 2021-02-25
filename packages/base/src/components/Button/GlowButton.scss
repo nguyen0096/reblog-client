@@ -12,8 +12,8 @@
     transition: .5s;
     letter-spacing: 4px;
 
-    &:focus-within * {
-        border: none;
+    &:focus {
+        outline: none;
     }
 
     &:hover {
