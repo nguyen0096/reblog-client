@@ -1,6 +1,6 @@
 import { action, computed, makeObservable, observable } from "mobx";
 
-import { AuthController } from 'controllers/auth_mock';
+import { AuthController } from 'controllers/auth';
 
 export class AuthStore {
     profile = {};

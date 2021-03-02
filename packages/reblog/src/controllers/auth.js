@@ -11,8 +11,12 @@ export class AuthController {
             if (res) {
                 localStorage.setItem('token', res.data);
                 this.store.setAuthProfile(res.data);
-                // window.location.replace('/dashboard');
+                window.location.replace('/dashboard');
             }
         });
+    }
+
+    async logout() {
+
     }
 }

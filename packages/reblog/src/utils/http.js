@@ -5,10 +5,11 @@ export default class HttpClient {
     constructor() {
         this.basePath = '/api';
     }
-    get(url, header = undefined, cb = undefined)
+    get(path, header = undefined, cb = undefined)
     {
-        return fetch(url, {
+        return axios({
             method: 'GET',
+            url: this.basePath + path,
             headers: new Headers(header || {
                 'Content-Type': 'application/json'
             })

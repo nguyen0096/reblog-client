@@ -16,8 +16,6 @@ import { NotFoundPage } from 'components/NotFoundPage/NotFoundPage';
 const App = (props) => {
     const authStore = props.appStore?.authStore || {};
 
-    console.log('App');
-
     return (
         <Container>
                 <Router>
