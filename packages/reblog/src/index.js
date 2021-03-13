@@ -1,31 +1,30 @@
-// FIXME: can't click on imports and go to source file
-// FIXME config hot reload for mobx changes
+// TODO: can't click on imports and go to source file
 
 import 'normalize.css';
 import './index.scss';
 
+// TODO: Remove this and still able to use async
+// Standalone runtime for Regenerator-compiled generator and async functions.
 import "regenerator-runtime/runtime.js";
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'mobx-react';
+import { Provider } from 'react-redux';
 
-import App from 'containers/App/App';
-import appStore from './stores/AppStore';
+import App from 'containers/App';
+import configureStore from './configureStore';
 
+const initialState = {};
+const store = configureStore(initialState);
 const MOUNT_NODE = document.getElementById('root');
+
 ReactDOM.render(
-  <Provider appStore={appStore}>
+  <Provider store={store}>
     <App />
-  </Provider>,
+  </Provider>
+  ,
   MOUNT_NODE,
 );
 
 if (module.hot) {
-  // Accept update for itself
   module.hot.accept();
-
-  // module.hot.accept(['./index.js'],(err) => {
-  //     console.log("reloading self");
-  //     window.location.reload();
-  // })
 }
