@@ -7,7 +7,7 @@ import TodoList from 'containers/Todo/TodoList';
 const App = (props) => {
 
     return (
-        <div>
+        <div className="app">
             <TodoList />
         </div>
     );

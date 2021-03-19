@@ -8,11 +8,6 @@ import { Header } from './children/Header';
 import { Body } from './children/Body';
 import { Footer } from './children/Footer';
 
-
-// interface Props {
-//   text: string,
-// }
-
 export const ChatBox = () => {
     return (
         <Container>
@@ -23,4 +18,4 @@ export const ChatBox = () => {
             </div>
         </Container>
     );
-}
+};

@@ -6,17 +6,12 @@ export function FAIcon(props) {
     let classNames = [];
     classNames.push(FontAwesomeTypes[props.type || 'regular']);
     classNames.push('fa-' + props.icon);
-    return (
-        <i
-            className={classNames.join(' ')}
-            aria-hidden="true"
-        />
-    )
+    return <i className={classNames.join(' ')} aria-hidden="true" />;
 }
 
 FAIcon.propTypes = {
     type: PropTypes.oneOf(Object.keys(FontAwesomeTypes)),
     icon: PropTypes.string.isRequired,
-}
+};
 
 export default FAIcon;

@@ -12,7 +12,6 @@ import { getTodo } from './actions';
 const key = 'todolist';
 
 export const TodoList = (props) => {
-    console.log("Props: " + JSON.stringify(props));
     useInjectReducer({ key, reducer });
 
     return (
@@ -20,7 +19,6 @@ export const TodoList = (props) => {
             <div className="todo">
                 <h1>Loading: {props.loading ? 'true' : 'false'}</h1>
                 <Button variant="contained" onClick={(e) => {
-                    console.log(props.onClickLoadData);
                     props.onClickLoadData(e);
                 }}>Load data</Button>
                 <div className="todo-list">
@@ -35,17 +33,9 @@ const mapStateToProps = createStructuredSelector({
     loading: makeSelectLoading(),
 });
 
-// const mapStateToProps = (state) => {
-//     console.log(state);
-//     return {
-//         loading: state.todolist?.loading,
-//     }
-// }
-
 const mapDispatchToProps = (dispatch) => {
     return {
         onClickLoadData: evt => {
-            console.log("onClickLoadData");
             if (evt !== undefined && evt.preventDefault) evt.preventDefault();
             dispatch(getTodo(evt));
         },

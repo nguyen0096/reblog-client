@@ -7,4 +7,6 @@ export default {
     component: Container,
 };
 
-export const Default = () => <Container>Button</Container>;
+export const Default = () => {
+    return <Container>Button</Container>;
+};

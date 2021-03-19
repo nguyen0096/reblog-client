@@ -1,7 +1,7 @@
 {
   "parser": "@typescript-eslint/parser",
   "extends": [
-    "standard-react",
+    "airbnb",
     "plugin:prettier/recommended",
     "prettier/standard",
     "prettier/react",
@@ -23,12 +23,27 @@
     }
   },
   "rules": {
+    "no-console": "off",
+    "no-use-before-define": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": "off",
     "space-before-function-paren": 0,
     "react/prop-types": 0,
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        "extensions": [
+          ".jsx",
+          ".tsx"
+        ]
+      }
+    ],
+    "react/destructuring-assignment": "off",
+    "react/require-default-props": "off",
     "react/jsx-handler-names": 0,
     "react/jsx-fragments": 0,
     "react/no-unused-prop-types": 0,
     "import/export": 0,
-    "semi": "warn"
+    "prettier/prettier": "warn"
   }
 }

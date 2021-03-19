@@ -1,5 +1,4 @@
 import produce from 'immer';
-
 import { GET_TODO } from './constants';
 
 export const initialState = {
@@ -13,7 +12,7 @@ const todoReducer = (state = initialState, action) =>
     produce(state, draft => {
         switch (action.type) {
             case GET_TODO:
-                draft.loading = true;
+                draft.loading = !state.loading;
                 break;
         }
     });

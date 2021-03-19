@@ -1,12 +1,12 @@
 import { createSelector } from 'reselect';
-import { initialState } from './reducer';
+// import { initialState } from './reducer';
 
-const selectTodoList = state => state.todolist || initialState;
+const selectTodoList = state => state.todolist;
 
 const makeSelectLoading = () =>
     createSelector(
         selectTodoList,
-        globalState => globalState.todolist?.loading,
+        todolist => todolist?.loading,
     );
 
 export { makeSelectLoading };
