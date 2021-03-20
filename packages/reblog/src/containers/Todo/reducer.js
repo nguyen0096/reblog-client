@@ -8,13 +8,12 @@ export const initialState = {
     todo: [],
 };
 
-const todoReducer = (state = initialState, action) =>
-    produce(state, draft => {
-        switch (action.type) {
-            case GET_TODO:
-                draft.loading = !state.loading;
-                break;
-        }
-    });
+const todoReducer = (state = initialState, action) => produce(state, (draft) => {
+    switch (action.type) {
+        case GET_TODO:
+            draft.loading = !state.loading;
+            break;
+    }
+});
 
 export default todoReducer;

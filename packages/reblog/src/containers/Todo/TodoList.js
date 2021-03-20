@@ -17,17 +17,27 @@ export const TodoList = (props) => {
     return (
         <>
             <div className="todo">
-                <h1>Loading: {props.loading ? 'true' : 'false'}</h1>
-                <Button variant="contained" onClick={(e) => {
-                    props.onClickLoadData(e);
-                }}>Load data</Button>
+                <h1>
+                    Loading:
+                    {' '}
+                    {props.loading ? 'true' : 'false'}
+                </h1>
+                <Button
+                    variant="contained"
+                    onClick={(e) => {
+                        props.onClickLoadData(e);
+                    }}
+                >
+                    Load data
+
+                </Button>
                 <div className="todo-list">
                     Data here!
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
 const mapStateToProps = createStructuredSelector({
     loading: makeSelectLoading(),
@@ -35,13 +45,12 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onClickLoadData: evt => {
+        onClickLoadData: (evt) => {
             if (evt !== undefined && evt.preventDefault) evt.preventDefault();
             dispatch(getTodo(evt));
         },
     };
-}
-
+};
 
 const withConnect = connect(
     mapStateToProps,
@@ -52,4 +61,3 @@ export default compose(
     withConnect,
     memo,
 )(TodoList);
-

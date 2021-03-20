@@ -1,15 +1,17 @@
 import './app.scss';
 
-import React from 'react';
+import React, { useRef } from 'react';
 
+import SideMenu from 'containers/Control/SideMenu';
+import NavBar from 'containers/Control/NavBar';
 import TodoList from 'containers/Todo/TodoList';
-import ThemeChanger from 'containers/Theme/ThemeChanger';
 
 const App = (props) => {
     return (
         <div className="app">
+            <SideMenu />
+            <NavBar />
             <TodoList />
-            <ThemeChanger />
         </div>
     );
 };

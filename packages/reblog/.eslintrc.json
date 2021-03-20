@@ -24,6 +24,7 @@
         "mocha": true // to mocha test
     },
     "rules": {
+        "no-unused-expressions": "off",
         "no-param-reassign": "off",
         "import/extensions": "off",
         "default-case": "off",
@@ -70,6 +71,12 @@
         "react/jsx-indent-props": [
             "warn",
             4
+        ],
+        "react/jsx-max-props-per-line": [
+            1,
+            {
+                "maximum": 2
+            }
         ]
     }
 }
