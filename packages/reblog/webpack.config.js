@@ -1,14 +1,13 @@
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 
 const base = {
     entry: path.resolve(process.cwd(), 'src'),
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'build'),
-        publicPath: '/'
+        publicPath: '/',
     },
     // Config loader to handle different types of files. Refer to https://webpack.js.org/loaders/
     module: {
@@ -16,7 +15,7 @@ const base = {
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                use: 'babel-loader'
+                use: 'babel-loader',
             },
             // Style loaders. Refer to https://webpack.js.org/loaders/#styling
             {
@@ -27,9 +26,9 @@ const base = {
             {
                 test: /\.s[ac]ss$/i,
                 exclude: /node_modules/,
-                use: ["style-loader", "css-loader", "sass-loader"]
-            }
-        ]
+                use: ['style-loader', 'css-loader', 'sass-loader'],
+            },
+        ],
     },
 
     plugins: [
@@ -48,8 +47,8 @@ const base = {
                 minifyURLs: true,
             },
             inject: true,
-        })
+        }),
     ],
-}
+};
 
 module.exports = base;

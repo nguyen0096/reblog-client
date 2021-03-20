@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "es6",
+            "dom"
+        ],
+        "target": "esnext", // Target latest version of ECMAScript.
+        "moduleResolution": "node", // Search under node_modules for non-relative imports.
+        "allowJs": true, // Process & infer types from .js files.
+        "noEmit": true, // Don't emit; allow Babel to transform files.
+        "strict": false, // Enable strictest settings like strictNullChecks & noImplicitAny.
+        "esModuleInterop": true, // Import non-ES modules as default imports.
+        "jsx": "react",
+        "baseUrl": "src"
+    },
+    "include": [
+        "src"
+    ]
+}
