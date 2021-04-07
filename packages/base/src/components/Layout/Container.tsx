@@ -2,20 +2,20 @@ import './Container.scss';
 
 import * as React from 'react';
 
-interface Props {
+export interface Props {
+    className?: string;
     children?: any;
-    width?: string;
-    height?: string;
+    [key:string]: unknown;
 }
 
-// A div toP
 export const Container = (props: Props) => {
-    const styleObj = {};
-    if (props.width) Object.assign(styleObj, { width: props.width });
-    if (props.height) Object.assign(styleObj, { height: props.height });
+    const { className, ...others } = props;
 
     return (
-        <div className="container" style={styleObj}>
+        <div
+            {...others}
+            className={`container${className? ' ' + className : ''}`}
+        >
             {props.children}
         </div>
     );

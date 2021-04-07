@@ -2,6 +2,8 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "start": "lerna run start --stream --parallel"
+    "bootstrap": "lerna bootstrap",
+    "start": "lerna run start --stream --parallel",
+    "clean": "lerna clean | find . -name 'yarn.lock' -delete"
   }
 }

@@ -2,14 +2,13 @@ import './GlowButton.scss';
 
 import * as React from 'react';
 
-interface Props {
+export interface Props {
     label?: string;
     height?: string;
     width?: string;
 }
 
-// A div to
-export const GlowButton = (props: Props) => {
+    export const GlowButton = (props: Props) => {
     return (
         <button
             className="btn-glow"

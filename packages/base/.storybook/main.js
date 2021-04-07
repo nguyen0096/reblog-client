@@ -1,4 +1,5 @@
 const path = require('path');
+const root = path.resolve(__dirname, '../');
 
 module.exports = {
   "stories": [
@@ -9,11 +10,11 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials"
   ],
-  webpackFinal: async (config, { configType }) => {
+
+  webpackFinal: async (config) => {
     config.module.rules.push({
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
-      include: path.resolve(__dirname, '../'),
+        test: /\.s?css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
     });
 
     return config;

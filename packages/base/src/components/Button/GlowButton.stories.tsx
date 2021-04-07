@@ -7,8 +7,8 @@ export default {
     component: GlowButton,
 };
 
-export const Default = (args) => {
+export const Default = (props: Object) => {
     return (
-        <GlowButton {...args} label="Submit"/>
+        <GlowButton {...props} label="Submit"/>
     );
 }

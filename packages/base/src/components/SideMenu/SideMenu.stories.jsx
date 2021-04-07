@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { SideMenu } from './SideMenu';
 
 export default {
-    title: 'Components/Navigation',
+    title: 'Navigation/SideMenu',
     component: SideMenu,
 };
 
