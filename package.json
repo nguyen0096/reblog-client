@@ -4,6 +4,6 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "start": "lerna run start --stream --parallel",
-    "clean": "lerna clean | find . -name 'yarn.lock' -delete"
+    "clean": "lerna clean -y | find . -name 'yarn.lock' -delete | rm -rf node_modules"
   }
 }
