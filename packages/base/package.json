@@ -1,6 +1,6 @@
 {
   "name": "@mana/base",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Made with create-react-library",
   "author": "nguyen0096",
   "license": "MIT",
@@ -75,6 +75,5 @@
   },
   "files": [
     "dist"
-  ],
-  "dependencies": {}
+  ]
 }
