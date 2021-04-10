@@ -5,6 +5,7 @@ import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 
 import useInjectReducer from 'utils/injectReducer';
+import { Container } from '@mana-codebase/base';
 import reducer from './reducer';
 import { makeSelectLoading } from './selectors';
 import { getTodo } from './actions';
@@ -16,6 +17,9 @@ export const TodoList = (props) => {
 
     return (
         <>
+            <Container>
+                Nguyen
+            </Container>
             <div className="todo">
                 <h1>
                     Loading:

@@ -1,0 +1,3 @@
+[submodule "packages/base"]
+	path = packages/base
+	url = git@github.com:mana-codebase/base.git
