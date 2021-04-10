@@ -1,3 +1,0 @@
-[submodule "packages/base"]
-	path = packages/base
-	url = git@github.com:nguyen0096/mana-baseui.git
