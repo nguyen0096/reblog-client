@@ -1,7 +1,17 @@
 {
-  "name": "root",
+  "name": "@mana-codebase/web-client",
   "private": true,
-  "workspaces": ["packages/base", "packages/reblog"],
+  "workspaces": {
+    "packages": ["packages/base", "packages/reblog"],
+    "nohoist": [
+      "**/webpack",
+      "**/webpack-cli",
+      "**/webpack-dev-middleware",
+      "**/webpack-hot-middleware",
+      "**/html-webpack-plugin",
+      "**/terser-webpack-plugin"
+    ]
+  },
   "scripts": {
     "memory": "find . -name \"node_modules\" -type d -prune | xargs du -chs",
     "clean": "find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' +"

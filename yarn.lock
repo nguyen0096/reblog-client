@@ -1653,11 +1653,6 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@mana-codebase/base@1.0.0":
-  version "1.0.0"
-  resolved "https://npm.pkg.github.com/download/@mana-codebase/base/1.0.0/7234e8ed3f0dfd16c28740ad7834af0987da739265c3f75bbdcfd9d85f9a2e5b#4a3bfa021dc49185446f57de5124b7e44e6c4f96"
-  integrity sha512-9/D3Oa7+wWJpOGtp/+YF3zDlpG6L6780ax1mD0CHSV8eg33R462kHScxh80ii1HJmPwsuLO7calSp1vl5Oa+zw==
-
 "@material-ui/core@^4.11.2":
   version "4.11.3"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.11.3.tgz#f22e41775b0bd075e36a7a093d43951bf7f63850"
@@ -12297,9 +12292,9 @@ performance-now@^2.1.0:
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
 picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
-  integrity sha512-q0M/9eZHzmr0AulXyPwNfZjtwZ/RBZlbN3K3CErVrk50T2ASYI7Bye0EvekFY3IP1Nt2DHu0re+V2ZHIpMkuWg==
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.3.tgz#465547f359ccc206d3c48e46a1bcb89bf7ee619d"
+  integrity sha512-KpELjfwcCDUb9PeigTs2mBJzXUPzAuP2oPcA989He8Rte0+YUAjw1JVedDhuTKPkHjSYzMN3npC9luThGYEKdg==
 
 pidtree@^0.3.0:
   version "0.3.1"

@@ -1,5 +1,5 @@
 {
-  "name": "@mana-codebase/reblog-client",
+  "name": "@mana-codebase/reblog",
   "version": "1.0.1",
   "description": "",
   "main": "index.js",
@@ -13,7 +13,7 @@
   "author": "nguyen0096",
   "license": "ISC",
   "dependencies": {
-    "@mana-codebase/base": "1.0.0",
+    "@mana-codebase/base": "1.0.1",
     "@material-ui/core": "^4.11.2",
     "axios": "^0.21.1",
     "bourbon": "^7.0.0",
